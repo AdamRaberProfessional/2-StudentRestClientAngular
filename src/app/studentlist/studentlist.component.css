@@ -1,0 +1,41 @@
+.outerBox{
+    border: 2px solid grey;
+    border-radius: 4px;
+    margin-top: 5vh;
+}
+
+.rowWrapper {
+	display: flex;
+	padding: 1vh;
+	background-color: rgba(255, 255, 255, 0.808);
+	border-bottom: 1px solid #DDD;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+td th {
+    border: 1px solid #dddddd;
+    
+}
+
+.id{
+    width: 3vw;
+    text-align: left;
+}
+
+.grade{
+    width: 7vw;
+}
+
+.name{
+    width: 13vw;
+}
+
+.major {
+    width: 10vw;
+}
+
+.time {
+    width: 21vw;
+}

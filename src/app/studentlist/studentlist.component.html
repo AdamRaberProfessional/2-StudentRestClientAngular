@@ -1,0 +1,22 @@
+<div class="outerBox">
+    <table class="tableWrapper">
+        <tr class="rowWrapper">
+            <th class="id">ID</th> 
+            <th class="name">First Name</th>
+            <th class="name">Last Name</th>
+            <th class="grade">Grade</th>
+            <th class="major">Major</th>
+            <th class="time">Time Created</th>
+        </tr>
+        <tr *ngFor="let student of studentList;" class="rowWrapper" >
+            <td class="id">{{student.id}}.</td>
+            <td class="name">{{student.firstname}}</td>
+            <td class="name">{{student.lastname}}</td>
+            <td class="grade">{{student.grade}}</td>
+            <td  *ngIf="student.major" class="major">{{student.major}}</td>
+            <td  *ngIf="!student.major" class="major">None</td>
+            <td class="time">{{student.timecreated}}</td>
+        </tr>
+    </table>
+    
+</div>

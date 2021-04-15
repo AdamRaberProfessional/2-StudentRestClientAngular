@@ -1,0 +1,26 @@
+.outerBox{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  position: absolute;
+  height: 70vh;
+  background-color: white;
+  z-index: 1;
+  border: solid 1px black;
+  border-radius: 3vh;
+  width: 90vw;
+  top: 10vh;
+  left: 5vw;
+}
+
+
+
+.header{
+    margin-top: 4vh;
+}
+
+.horizontalflex{
+  display: flex;
+  flex-direction: row;
+}

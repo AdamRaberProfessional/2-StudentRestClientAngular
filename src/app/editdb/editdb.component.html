@@ -1,0 +1,14 @@
+<div class="outerBox">
+    <h1 class="header">Create student</h1>
+    <input [(ngModel)]="firstnameInput" type="text" class="input" placeholder="first name">
+    <input [(ngModel)]="lastnameInput" type="text" class="input" placeholder="last name">
+    
+    
+    <select class="gradeselect" [(ngModel)]="selectedGrade"> 
+        <option [value]="0" disabled selected hidden>Choose grade</option>
+        <option *ngFor="let grade of validGrades;"[value]="grade">{{grade}}</option>
+    </select>
+    
+    <input *ngIf="selectedGrade>12" type="text" id="majorinput" placeholder="major" [(ngModel)]="majorInput">
+    <button (click)="createStudent()">Create student</button>
+</div>
