@@ -4,7 +4,7 @@
   flex: 1;
   align-items: center;
   position: absolute;
-  height: 70vh;
+  height: 40vh;
   background-color: white;
   z-index: 1;
   border: solid 1px black;
@@ -12,6 +12,12 @@
   width: 90vw;
   top: 10vh;
   left: 5vw;
+}
+
+.input{
+  margin-top: 1vh;
+  width: 35vw;
+  height: 4vh;
 }
 
 
@@ -24,3 +30,23 @@
   display: flex;
   flex-direction: row;
 }
+
+.buttonDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 35vw;
+  margin-top: 1vh;
+}
+
+.leftButton {
+  width: 17vw;
+  margin-right: .5vw;
+}
+
+.rightButton {
+  width: 17vw;
+  margin-left: .5vw;
+}
+

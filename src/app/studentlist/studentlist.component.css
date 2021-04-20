@@ -1,7 +1,14 @@
+.spaceTaker{
+    margin-top: 40vh;
+}
+
 .outerBox{
     border: 2px solid grey;
     border-radius: 4px;
     margin-top: 5vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .rowWrapper {
@@ -12,12 +19,33 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+
 }
 
-td th {
-    border: 1px solid #dddddd;
-    
+
+.delete, .edit{
+    width: 9vw;
 }
+
+.edit {
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+.createBtn{
+    height: 4vh;
+    background-color: lightblue;
+    border: none;
+}
+
+#header{
+    margin-bottom: 2vh;
+    margin-top: 3vh;
+    text-align: center;
+}
+
+
+
 
 .id{
     width: 3vw;
@@ -25,7 +53,7 @@ td th {
 }
 
 .grade{
-    width: 7vw;
+    width: 9vw;
 }
 
 .name{
@@ -39,3 +67,4 @@ td th {
 .time {
     width: 21vw;
 }
+

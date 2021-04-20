@@ -1,0 +1,103 @@
+.outerBox{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    border: solid 1px black;
+    border-radius: 3vh;
+    width: 80vw;
+    top: 10vh;
+    left: 10vw;
+  }
+
+  
+.id{
+    width: 3vw;
+    text-align: left;
+}
+
+.grade{
+    width: 9vw;
+}
+
+.name{
+    width: 13vw;
+}
+
+.major {
+    width: 10vw;
+}
+
+.time {
+    width: 21vw;
+}
+
+.rowWrapper {
+	display: flex;
+	padding: 1vh;
+	background-color: rgba(255, 255, 255, 0.808);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.tableWrapper {
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    border-top: 1px solid black;
+    width: 80vw;
+}
+
+  .header {
+      margin-top: 3vh;
+      margin-bottom: 1.5vh;
+      font-size: 3vw;
+  }
+
+  .topRowFlex, .bottomRowFlex {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+  }
+
+  .topRowFlex {
+    margin-top: 3vh;
+  }
+  
+  .bottomRowFlex {
+      margin-bottom: 2vh;
+      margin-top: 1vh;
+  }
+
+
+  .attchange{
+      width: 19vw;
+      text-align: center;
+      margin-right: 1vw;
+  }
+
+  .newmajor {
+      width: 12vw;
+      margin-left: 1vw;
+      text-align: center;
+  }
+
+  .attval{
+    width: 22vw;
+    text-align: center;
+  }
+  .btncol{
+    width: 15vw;
+    margin-left: 1vw;
+  }
+
+  .cancel {
+      margin-top: 1vh;
+      width: 20vw;
+      margin-left: 4vw;
+      margin-bottom: 3vh;
+  }

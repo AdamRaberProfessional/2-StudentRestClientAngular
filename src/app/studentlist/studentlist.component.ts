@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {Student} from '../models/Student';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-studentlist',
@@ -7,8 +9,9 @@ import {Student} from '../models/Student';
   styleUrls: ['./studentlist.component.css']
 })
 export class StudentlistComponent implements OnInit {
-
   studentList: Student[] = [];
+  dbAction: string = "";
+  studentEditing : Student | undefined;
 
   constructor() { }
 
@@ -17,6 +20,8 @@ export class StudentlistComponent implements OnInit {
   }
   
   async updateStudentList(){
+    this.dbAction = "";
+    this.studentList = [];
     const url: string = 'http://localhost:8080/getstudent?id=all';
     const data = await fetch(url);
     const parsedData = await data.json();
@@ -35,8 +40,23 @@ export class StudentlistComponent implements OnInit {
         this.studentList.push(tmpStudent);
       }
     }
-    for(let stuIndex in this.studentList){
-      console.log(this.studentList[stuIndex]);
-    }
   }
+
+  deleteStudent(student: Student){
+    $.post("http://localhost:8080/deletestudent",
+    {
+      id: student.id
+    }).then(() => this.updateStudentList());
+    
+  }
+
+  updateListTimeout(){
+    setTimeout(() => this.updateStudentList(), 500)
+  }
+
+  editStudent(student: Student){
+    this.dbAction = "edit";
+    this.studentEditing = student;
+  }
+  
 }

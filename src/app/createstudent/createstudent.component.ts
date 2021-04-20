@@ -4,10 +4,10 @@ import * as $ from 'jquery';
 
 @Component({
   selector: 'app-editdb',
-  templateUrl: './editdb.component.html',
-  styleUrls: ['./editdb.component.css']
+  templateUrl: './createstudent.component.html',
+  styleUrls: ['./createstudent.component.css']
 })
-export class EditdbComponent implements OnInit {
+export class CreateStudentComponent implements OnInit {
 
   firstnameInput : string = "";
   lastnameInput : string = "";
@@ -16,7 +16,7 @@ export class EditdbComponent implements OnInit {
   validGrades = [...Array(16).keys()].map(i => i + 1)
 
 
-  @Output() hide = new EventEmitter<void>();
+  @Output() hidecreate = new EventEmitter<void>();
   
   constructor() { }
 
@@ -24,38 +24,38 @@ export class EditdbComponent implements OnInit {
   }
   
   createStudent(){
-    alert(this.selectedGrade + this.firstnameInput + this.lastnameInput + this.majorInput)
+    let invalidInput = false;
     if(this.selectedGrade != "0" && this.firstnameInput !== "" && this.lastnameInput !== ""){
+      const firstName = this.firstnameInput.charAt(0).toUpperCase() + this.firstnameInput.slice(1);
+      const lastName = this.lastnameInput.charAt(0).toUpperCase() + this.lastnameInput.slice(1);
       if(this.selectedGrade <= 12){
         $.post("http://localhost:8080/createstudent",
               {
-                fname: this.firstnameInput,
-                lname: this.lastnameInput,
+                fname: firstName,
+                lname: lastName,
                 grade: this.selectedGrade
               })
       }else{
         if(this.majorInput !== ""){
           $.post("http://localhost:8080/createstudent",
           {
-            fname: this.firstnameInput,
-            lname: this.lastnameInput,
+            fname: firstName,
+            lname: lastName,
             grade: this.selectedGrade,
-            major: this.majorInput
+            major: this.majorInput.toUpperCase()
           })
         }else{
-          alert("Major cannot be blank")
+          alert("Major cannot be blank");
+          invalidInput = true;
         }
       }
     }else{
-      alert("No inputs can be left blank")
+      invalidInput = true;
+      alert("No inputs can be left blank");
     }
-    this.selectedGrade = "0";
-    this.firstnameInput = "";
-    this.lastnameInput = "";
-    this.hide.emit();
-  }
-
-  changeDbAction(){
-
+    if(!invalidInput){
+    this.hidecreate.emit();
+    }
+    
   }
 }

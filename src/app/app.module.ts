@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { StudentlistComponent } from './studentlist/studentlist.component';
-import { EditdbComponent } from './editdb/editdb.component';
+import { CreateStudentComponent } from './createstudent/createstudent.component';
+import { EditstudentComponent } from './editstudent/editstudent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentlistComponent,
-    EditdbComponent,
+    CreateStudentComponent,
+    EditstudentComponent,
     
   ],
   imports: [

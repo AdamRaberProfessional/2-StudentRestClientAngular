@@ -4,11 +4,17 @@
     <input [(ngModel)]="lastnameInput" type="text" class="input" placeholder="last name">
     
     
-    <select class="gradeselect" [(ngModel)]="selectedGrade"> 
+    <select class="input" [(ngModel)]="selectedGrade"> 
         <option [value]="0" disabled selected hidden>Choose grade</option>
         <option *ngFor="let grade of validGrades;"[value]="grade">{{grade}}</option>
     </select>
     
-    <input *ngIf="selectedGrade>12" type="text" id="majorinput" placeholder="major" [(ngModel)]="majorInput">
-    <button (click)="createStudent()">Create student</button>
+    <input *ngIf="selectedGrade>12" type="text" class="input" placeholder="major" [(ngModel)]="majorInput">
+    <div class="buttonDiv">
+        <button class="leftButton" (click)="hidecreate.emit()">Cancel</button>
+        <button class="rightButton" (click)="createStudent()">Create student</button>
+        
+    </div>
+    
 </div>
+ 

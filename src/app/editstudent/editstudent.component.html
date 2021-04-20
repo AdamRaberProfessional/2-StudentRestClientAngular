@@ -1,0 +1,46 @@
+<div class="outerBox">
+
+    <h2 class="header">What would you like to edit in student {{chosenStudent?.id}}?</h2>
+  
+    <div class="topRowFlex">
+        <div class="attchange">Attribute Change</div>
+        <div class="attval">{{selectedAttribute}} Value</div>
+        <div *ngIf="changeMajor()" class="newmajor">New Major</div>
+        <div class="btncol"></div>
+    </div>
+    <div class="bottomRowFlex">
+        <select class="attchange" [(ngModel)]="selectedAttribute" > 
+            <option *ngFor="let option of options;" [value]="option">{{option}}</option>
+        </select>
+
+        <ng-template [ngIf]="selectedAttribute !== 'Grade'"  >
+            <input [(ngModel)]="attributeVal" class="attval">
+        </ng-template>
+        <select class="attval" *ngIf="selectedAttribute === 'Grade'" [(ngModel)]="attributeVal">
+            <option *ngFor="let grade of validGrades;" [value]="grade">{{grade}}</option>
+        </select>
+        <input *ngIf="changeMajor()"  [(ngModel)]="majorChangedTo" class="newmajor">
+        <button class="btncol" (click)="btnClick()">Edit Student</button>
+    </div>
+    <button class="cancel" (click)="hideEdit.emit()">Cancel</button>
+
+    <table class="tableWrapper" *ngIf="chosenStudent !== undefined" >
+        <!-- <tr class="rowWrapper">
+            <th class="id">ID</th> 
+            <th class="name">First Name</th>
+            <th class="name">Last Name</th>
+            <th class="grade">Grade</th>
+            <th class="major">Major</th>
+            <th class="time">Time Created</th>
+        </tr>    -->
+        <tr class="rowWrapper" >
+            <td class="id">{{chosenStudent.id}}</td>
+            <td class="name">{{chosenStudent.firstname}}</td>
+            <td class="name">{{chosenStudent.lastname}}</td>
+            <td class="grade">{{chosenStudent.grade}}</td>
+            <td  *ngIf="chosenStudent.major" class="major">{{chosenStudent.major}}</td>
+            <td  *ngIf="!chosenStudent.major" class="major">None</td>
+            <td class="time">{{chosenStudent.timecreated}}</td>
+        </tr>
+    </table>
+</div>

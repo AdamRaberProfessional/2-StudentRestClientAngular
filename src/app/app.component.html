@@ -1,8 +1,5 @@
 <div class="app">
-  <header>
-    <h1 id="header">Students</h1>
-  </header>
+
   <app-studentlist></app-studentlist>
-  <app-editdb *ngIf="dbAction === 'create'" (hide)="dbAction = '';"></app-editdb>
-  <button (click)="dbAction = 'create'">Create student</button>
+  
 </div>

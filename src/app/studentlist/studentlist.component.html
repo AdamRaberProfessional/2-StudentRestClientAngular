@@ -1,5 +1,9 @@
-<div class="outerBox">
-    <table class="tableWrapper">
+<div class="spaceTaker"  *ngIf="studentList.length === 0"></div>
+<div class="outerBox" *ngIf="dbAction !== 'create' && dbAction !== 'edit'">
+<header>
+    <h1 id="header"  *ngIf="studentList.length > 0">Students</h1>
+  </header>
+    <table class="tableWrapper" *ngIf="studentList.length > 0" >
         <tr class="rowWrapper">
             <th class="id">ID</th> 
             <th class="name">First Name</th>
@@ -7,7 +11,9 @@
             <th class="grade">Grade</th>
             <th class="major">Major</th>
             <th class="time">Time Created</th>
-        </tr>
+            <th class="edit"></th>
+            <th class="delete"></th>
+        </tr>   
         <tr *ngFor="let student of studentList;" class="rowWrapper" >
             <td class="id">{{student.id}}.</td>
             <td class="name">{{student.firstname}}</td>
@@ -16,7 +22,17 @@
             <td  *ngIf="student.major" class="major">{{student.major}}</td>
             <td  *ngIf="!student.major" class="major">None</td>
             <td class="time">{{student.timecreated}}</td>
+            <button class="edit" (click)="editStudent(student);">Edit</button>
+            <button class="delete"(click)="deleteStudent(student)">Delete</button>
+            
         </tr>
+        
     </table>
-    
+    <button class="createBtn" (click)="dbAction = 'create'">Create student</button>
 </div>
+<ng-template [ngIf]="dbAction === 'edit'">
+    <app-editstudent [chosenStudent]="studentEditing" (hideEdit)="updateListTimeout()"></app-editstudent>
+</ng-template>
+<app-editdb *ngIf="dbAction === 'create'" (hidecreate)="updateListTimeout();"></app-editdb>
+
+
