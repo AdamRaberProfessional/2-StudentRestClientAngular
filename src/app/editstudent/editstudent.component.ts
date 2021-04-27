@@ -31,6 +31,7 @@ export class EditstudentComponent implements OnInit {
   }
 
   async btnClick(){
+    /*  */
     let validEdit = true;
     let attributeChange = this.selectedAttribute.replace(" ", "").toLowerCase();
     let attributeValue;
@@ -80,13 +81,11 @@ export class EditstudentComponent implements OnInit {
       this.hideEdit.emit();
     }else{
       alert("Non-valid edit. Please make sure major is less than 4 characters and fields are not blank.")
-    }
-
-
-   
+    }   
   }
 
-  changeMajor(){
+  changeMajor(): boolean {
+    /* checks if the grade change means that a new major needs to be shown, and returns the corresponding boolean. */
     if(this.selectedAttribute === 'Grade'){
       const oldGrade = this.chosenStudent!.grade!
       const newGrade = this.attributeVal!;

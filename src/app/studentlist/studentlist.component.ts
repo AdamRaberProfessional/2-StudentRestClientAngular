@@ -20,6 +20,7 @@ export class StudentlistComponent implements OnInit {
   }
   
   async updateStudentList(){
+    /* fetches list of all students and displays it in the list. */
     this.dbAction = "";
     this.studentList = [];
     const url: string = 'http://localhost:8080/getstudent?id=all';
