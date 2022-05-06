@@ -26,12 +26,13 @@ export class StudentlistComponent implements OnInit {
     const url: string = 'http://localhost:8080/getstudent?id=all';
     const data = await fetch(url);
     const parsedData = await data.json();
-    for(let key in parsedData){
-      const currentStudent = parsedData[key];
+    console.log(parsedData)
+    for(let index in parsedData){
+      const currentStudent = parsedData[index];
       let tmpStudent: Student;
       if(currentStudent !== null){
         tmpStudent = {
-          id: key,
+          id: currentStudent.id,
           firstname: currentStudent.firstname,
           lastname: currentStudent.lastname,
           grade: currentStudent.grade,
